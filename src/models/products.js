@@ -30,14 +30,32 @@ class Products {
   }
 
   put(id, entry) {
+    let id = req.params.id;
+    database = database.map( (record) => (record.id === parseInt(id)) ? entry: record );
   }
 
   delete(id) {
+    let id = parseInt(req.params.id);
+    database = database.filter( (record,idx) => record.id !== id);
   }
 
-  sanitize(entry) {
-  }
+  sanitize(data) {
+    let valid = true;
+    let record = {};
 
+    for (let key in schema) {
+      if(schema[key].required) {
+        if(data[key]) {
+          record[key] = data[key];
+        } else {
+          valid = false;
+        }
+      } else {
+        record[key] = data[key];
+      }
+    }
+    return valid ? record : undefined;
+  }
 }
 
 module.exports = Products;

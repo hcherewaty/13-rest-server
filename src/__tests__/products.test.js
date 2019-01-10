@@ -1,26 +1,60 @@
 'use strict';
 
-const rootDir = process.cwd();
-const Categories = require(`${rootDir}/src/models/categories.js`);
+const Products = require('../models/products.js');
+const supertest = require('supertest');
+const {server} = require('..//server.js');
+const mockRequest = supertest(server);
 
-const supergoose = require('../supergoose.js');
+describe('Products schema and routes', () => {
 
-beforeAll(supergoose.startDB);
-afterAll(supergoose.stopDB);
+  it('should respond with a 500 on an error', () => {
 
-describe('Categories model', () => {
-    it('can post() a new category', () => {
-        let obj = {name: 'Cool category', type: 'Super cool'};
-        let categories = new Categories();
-        return categories.post(obj)
-        .then( record => {
-            Object.keys(obj).forEach(key => {
-                expect(record[key]).toEqual(obj[key]);
-            });
-        });
-    });
+    return mockRequest
+      .get('/foo')
+      .then(results => {
+        expect(results.status).toBe(500);
+      }).catch(console.error);
 
-    it('can get() a category', () => {
-        let obj = {name: 'New category', type: 'cool'};
-    })
+  });
+  
+  it('should respond with a 404 on an invalid route', () => {
+
+    return mockRequest
+      .get('/foobar')
+      .then(results => {
+        expect(results.status).toBe(404);
+      }).catch(console.error);
+
+  });
+
+  it('should respond with a 404 on an invalid method', () => {
+
+    return mockRequest
+      .post('/')
+      .then(results => {
+        expect(results.status).toBe(404);
+      }).catch(console.error);
+
+  });
+
+  it('should respond properly on request to /api/v1/categories', () => {
+
+    return mockRequest
+      .get('/api/v1/categories')
+      .then(results => {
+        expect(results.status).toBe(200);
+      }).catch(console.error);
+
+  });
+
+  it('should respond properly on request to /api/v1/products', () => {
+
+    return mockRequest
+      .get('/api/v1/products')
+      .then(results => {
+        expect(results.status).toBe(200);
+      }).catch(console.error);
+
+  });
+
 });
