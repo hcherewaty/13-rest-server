@@ -19,7 +19,7 @@ class Products {
     // console.log(id);
     // let id = req.params.id;
     let response = id ? this.database.filter( record => record.id === id) : this.database;
-    return response;
+    return Promise.resolve(response);
   }
   
   post(entry) {
@@ -28,17 +28,24 @@ class Products {
     if(record.id) {
       this.database.push(record);
     }
-    return record;
+    return Promise.resolve(record);
   }
 
   put(id, entry) {
-    let id = req.params.id;
-    database = database.map( (record) => (record.id === parseInt(id)) ? entry: record );
+    _id = entry._id;
+    let newRecord = sanitize(entry);
+    for(let i in database) {
+      if(_id === database.entry[i]['_id']) {
+        this.database[i] = newRecord;
+      }
+    }
+    return Promise.resolve(newRecord);
   }
 
   delete(id) {
-    let id = parseInt(req.params.id);
-    database = database.filter( (record,idx) => record.id !== id);
+    // let id = parseInt(req.params.id);
+    this.database = this.database.filter( (record,idx) => record.id !== id);
+    return Promise.resolve({});
   }
 
   sanitize(data) {
