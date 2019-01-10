@@ -16,6 +16,8 @@ class Products {
   }
 
   get(id) {
+    // console.log(id);
+    // let id = req.params.id;
     let response = id ? this.database.filter( record => record.id === id) : this.database;
     return response;
   }
