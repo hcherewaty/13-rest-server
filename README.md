@@ -6,9 +6,10 @@
 ### Author: Heather Cherewaty
 
 ### Links and Resources
+[![Build Status](https://www.travis-ci.com/hcherewaty/13-rest-server.svg?branch=master)](https://www.travis-ci.com/hcherewaty/13-rest-server)
 
 * [repo](https://github.com/hcherewaty/13-rest-server)
-* [travis](http://xyz.com)
+* [travis](https://www.travis-ci.com/hcherewaty/13-rest-server)
 
 
 
