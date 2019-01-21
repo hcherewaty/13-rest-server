@@ -2,8 +2,9 @@
   "name": "api-server-solution",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "node index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest --verbose",
     "test-watch": "jest --watchAll --verbose"
   },
