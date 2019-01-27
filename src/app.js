@@ -5,6 +5,12 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 
+const cwd = process.cwd();
+
+// Swagger Docs
+const swaggerDocs = require(`${cwd}/docs/config/swagger.json`);
+router.use('/api/v1/doc/', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
 // Esoteric Resources
 const errorHandler = require( './middleware/error.js');
 const notFound = require( './middleware/404.js' );

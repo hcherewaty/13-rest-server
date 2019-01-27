@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "node index.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
     "start": "node index.js",
-    "test": "jest --verbose",
-    "test-watch": "jest --watchAll --verbose"
+    "watch": "nodemon index.js",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
+    "test-watch": "jest --watchAll",
+    "test": "jest"
   },
   "jest": {
     "testEnvironment": "node"

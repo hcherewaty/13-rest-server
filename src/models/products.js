@@ -9,6 +9,11 @@ const schema = {
 
 };
 
+/**
+ *
+ *
+ * @class Products - class representing products routes
+ */
 class Products {
 
   constructor() {
