@@ -10,22 +10,21 @@
 
 * [repo](https://github.com/hcherewaty/13-rest-server)
 * [travis](https://www.travis-ci.com/hcherewaty/13-rest-server)
-[heroku](https://calm-hamlet-87615.herokuapp.com/)
+* [heroku](https://calm-hamlet-87615.herokuapp.com/)
 
 
 
 #### Documentation
-* [swagger](http://xyz.com) (API assignments only)
-* [jsdoc](http://xyz.com) (All assignments)
+* [swagger](https://calm-hamlet-87615.herokuapp.com/docs/config/swagger.json) 
+* [jsdoc](https://calm-hamlet-87615.herokuapp.com/docs/) 
 
 ### Modules
 #### `index.js`
-##### Exported Values and Methods
 
 ### Setup
 #### `.env` requirements
 * `PORT` - Defined in ENV
-* `MONGODB_URI` - Running locally
+* `MONGODB_URI` - Defined in ENV.
 
 #### Running the app
 * `npm start`

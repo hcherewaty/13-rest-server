@@ -2,6 +2,11 @@
 
 const categoriesModel = require('./category-schema.js')
 
+/**
+ *
+ *
+ * @class Categories - class representing categories routes
+ */
 class Categories {
 
   constructor() {
