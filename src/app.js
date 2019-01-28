@@ -8,8 +8,8 @@ const morgan = require('morgan');
 const cwd = process.cwd();
 
 // Swagger Docs
-const swaggerDocs = require(`${cwd}/docs/config/swagger.json`);
-router.use('/api/v1/doc/', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+// const swaggerDocs = require(`${cwd}/docs/config/swagger.json`);
+// router.use('/api/v1/doc/', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // Esoteric Resources
 const errorHandler = require( './middleware/error.js');
